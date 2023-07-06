@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    </head>
+  <body>
+    <pre>
+      <code>
+        // jsonSelector
+(() => {
+    'use strict';
+
+    const CONTENT_PATH = `/content/`;
+    const currentUrl = window.location.href;
+    let result = currentUrl;
+    if (currentUrl.indexOf(CONTENT_PATH) >= 0) {
+        if (currentUrl.indexOf(`editor.html/`) >= 0) {
+            result = currentUrl.replace(`editor.html/`, ``);
+            result = result.replace(`ui#/aem/`, ``);
+            result += result.indexOf(`?`) >= 0 ? `&wcmmode=disabled` : `?wcmmode=disabled`;
+        }
+
+        result = result.replace(`.html`,`.1.json`)
+        window.location.href = result
+    }
+})();
+      </code>
+    </pre>
+  </body>
+</html>
